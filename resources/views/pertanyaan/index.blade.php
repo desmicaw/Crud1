@@ -26,7 +26,13 @@
           <button class="btn btn-info">Give an Answer!</button>
         </a>
       </form>
-	  	
+      <a href="/pertanyaan/{{ $pertanyaan->id }}" class="btn btn-primary mt-2">Detail Pertanyaan</a>
+	  	<a href="/pertanyaan/{{ $pertanyaan->id }}/edit" class="btn btn-default mt-2">Edit Pertanyaan</a>
+      <form action="/pertanyaan/{{ $pertanyaan->id }}" method="POST" style="display: inline">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-sm btn-danger"> <i class="fas fa-trash"></i> </button>
+      </form>
 	  </div>
 	</div>
 	@endforeach

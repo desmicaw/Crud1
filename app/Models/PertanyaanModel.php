@@ -13,7 +13,22 @@
 			return $newPertanyaan;
 		}
 
-		
+		public static function find_by_id($id){
+			$detail = DB::table('pertanyaan')->where('id',$id)->first();
+			return $detail;
+		}
+
+		public static function update($id,$request){
+			// dd($request);
+			$update = DB::table('pertanyaan')->where('id',$id)->update(['judul'=>$request["judul"],'isi'=>$request["isi"]]);
+			return $update;
+		}
+
+		public static function delete($id){
+			$delete = DB::table('pertanyaan')->where('id',$id)->delete();
+			return $delete;
+		}
+
 	}
 
 
